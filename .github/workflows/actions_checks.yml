@@ -14,5 +14,5 @@ jobs:
        uses: ./.github/actions/checks
        with:
         token: ${{secrets.OSSF_PAT}}
-        checkName: Vulnerabilities
+        checkName: Vulnerabilities,Branch-Protection,Code-Review
 # "Dangerous-Workflow,Binary-Artifacts,Branch-Protection,Code-Review,Dependency-Update-Tool,Vulnerabilities,Pinned-Dependencies,SAST,Security-Policy"
