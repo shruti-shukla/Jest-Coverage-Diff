@@ -3,7 +3,7 @@
 Use the action to get jest coverage diff for pull requests as a comment on the pull request
 Helps the code reviewer to get the high level view of code coverage changes without leaving the pull request window
 
-example: X
+example:
 
 Code coverage comparison master vs testBranch:
 
