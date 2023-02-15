@@ -1,4 +1,4 @@
-name: 'Actions Reliability Checks'
+name: 'Actions Checks with Standalone Download'
 description: 'A github action to run reliability checks for marketplace actions'
 author: 'Shruti Shukla'
 inputs:
