@@ -1,4 +1,4 @@
-module.exports =
+export default
 /******/ (function(modules, runtime) { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The module cache
@@ -1427,11 +1427,11 @@ function URL(url) {
   args[1] = conversions["USVString"](args[1]);
   }
 
-  module.exports.setup(this, args);
+  setup(this, args);
 }
 
 URL.prototype.toJSON = function toJSON() {
-  if (!this || !module.exports.is(this)) {
+  if (!this || !is(this)) {
     throw new TypeError("Illegal invocation");
   }
   const args = [];
@@ -1453,7 +1453,7 @@ Object.defineProperty(URL.prototype, "href", {
 });
 
 URL.prototype.toString = function () {
-  if (!this || !module.exports.is(this)) {
+  if (!this || !is(this)) {
     throw new TypeError("Illegal invocation");
   }
   return this.href;
@@ -1858,9 +1858,9 @@ class Summary {
             if (this._filePath) {
                 return this._filePath;
             }
-            const pathFromEnv = process.env[exports.SUMMARY_ENV_VAR];
+            const pathFromEnv = process.env[SUMMARY_ENV_VAR];
             if (!pathFromEnv) {
-                throw new Error(`Unable to find environment variable for $${exports.SUMMARY_ENV_VAR}. Check if your runtime environment supports job summaries.`);
+                throw new Error(`Unable to find environment variable for $${SUMMARY_ENV_VAR}. Check if your runtime environment supports job summaries.`);
             }
             try {
                 yield access(pathFromEnv, fs_1.constants.R_OK | fs_1.constants.W_OK);
@@ -4610,11 +4610,11 @@ module.exports.wrapperSymbol = Symbol("wrapper");
 module.exports.implSymbol = Symbol("impl");
 
 module.exports.wrapperForImpl = function (impl) {
-  return impl[module.exports.wrapperSymbol];
+  return impl[wrapperSymbol];
 };
 
 module.exports.implForWrapper = function (wrapper) {
-  return wrapper[module.exports.implSymbol];
+  return wrapper[implSymbol];
 };
 
 
@@ -4879,7 +4879,7 @@ var ExitCode;
      * A code indicating that the action was a failure
      */
     ExitCode[ExitCode["Failure"] = 1] = "Failure";
-})(ExitCode = exports.ExitCode || (exports.ExitCode = {}));
+})(ExitCode = _ExitCode || (exports.ExitCode = {}));
 //-----------------------------------------------------------------------
 // Variables
 //-----------------------------------------------------------------------
@@ -6480,7 +6480,7 @@ exports.defaults = {
         agent: Utils.getProxyAgent(baseUrl)
     }
 };
-exports.GitHub = core_1.Octokit.plugin(plugin_rest_endpoint_methods_1.restEndpointMethods, plugin_paginate_rest_1.paginateRest).defaults(exports.defaults);
+exports.GitHub = core_1.Octokit.plugin(plugin_rest_endpoint_methods_1.restEndpointMethods, plugin_paginate_rest_1.paginateRest).defaults(defaults);
 /**
  * Convience function to correctly format Octokit Options to pass into the constructor.
  *
@@ -7106,16 +7106,16 @@ var HttpCodes;
     HttpCodes[HttpCodes["BadGateway"] = 502] = "BadGateway";
     HttpCodes[HttpCodes["ServiceUnavailable"] = 503] = "ServiceUnavailable";
     HttpCodes[HttpCodes["GatewayTimeout"] = 504] = "GatewayTimeout";
-})(HttpCodes = exports.HttpCodes || (exports.HttpCodes = {}));
+})(HttpCodes = _HttpCodes || (exports.HttpCodes = {}));
 var Headers;
 (function (Headers) {
     Headers["Accept"] = "accept";
     Headers["ContentType"] = "content-type";
-})(Headers = exports.Headers || (exports.Headers = {}));
+})(Headers = _Headers || (exports.Headers = {}));
 var MediaTypes;
 (function (MediaTypes) {
     MediaTypes["ApplicationJson"] = "application/json";
-})(MediaTypes = exports.MediaTypes || (exports.MediaTypes = {}));
+})(MediaTypes = _MediaTypes || (exports.MediaTypes = {}));
 /**
  * Returns the proxy URL, depending upon the supplied url and proxy environment variables.
  * @param serverUrl  The server URL where the request will be sent. For example, https://api.github.com
@@ -9417,7 +9417,7 @@ module.exports.serializeURLOrigin = function (url) {
   switch (url.scheme) {
     case "blob":
       try {
-        return module.exports.serializeURLOrigin(module.exports.parseURL(url.path[0]));
+        return serializeURLOrigin(parseURL(url.path[0]));
       } catch (e) {
         // serializing an opaque origin returns "null"
         return "null";
@@ -9485,7 +9485,7 @@ module.exports.parseURL = function (input, options) {
   }
 
   // We don't handle blobs, so this just delegates:
-  return module.exports.basicURLParse(input, { baseURL: options.baseURL, encodingOverride: options.encodingOverride });
+  return basicURLParse(input, { baseURL: options.baseURL, encodingOverride: options.encodingOverride });
 };
 
 
